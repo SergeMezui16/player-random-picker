@@ -1,14 +1,9 @@
 'use client';
 
-import { FormEvent } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { usePlayers } from '@/hooks';
+import { Player } from '@/schema/player';
 
-type Player = {
-  name: string;
-  id: string;
-};
 
 export default function Home() {
   const { add, players, remove } = usePlayers();

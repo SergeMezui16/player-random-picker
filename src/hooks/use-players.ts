@@ -1,5 +1,5 @@
 import { PLAYER_LOCAL_KEY } from '@/configs/constants';
-import { Player } from '@/schemas/player';
+import { Player } from '@/schema/player';
 import { useLocalStorage } from 'usehooks-ts';
 
 export const usePlayers = () => {
