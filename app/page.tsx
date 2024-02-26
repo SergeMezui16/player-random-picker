@@ -3,16 +3,13 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { usePlayers } from '@/hooks';
 import { Player } from '@/schema/player';
-
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const { add, players, remove } = usePlayers();
   const { register, handleSubmit } = useForm<Player>();
 
   const handleAdd: SubmitHandler<Player> = (data) => {
-    // e.preventDefault();
-    console.log(data);
-
     add(data);
   };
 
@@ -27,13 +24,13 @@ export default function Home() {
           return (
             <li key={player.id}>
               {player.name} |{' '}
-              <button
+              <Button
                 onClick={() => {
                   remove(player);
                 }}
               >
                 delete
-              </button>
+              </Button>
             </li>
           );
         })}
