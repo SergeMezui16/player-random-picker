@@ -1,4 +1,4 @@
-import { PLAYER_LOCAL_KEY } from '@/configs/constants';
+import { PLAYER_LOCAL_KEY } from '@/config/constants';
 import { Player } from '@/schema/player';
 import { useLocalStorage } from 'usehooks-ts';
 

@@ -3,7 +3,8 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { usePlayers } from '@/hooks';
 import { Player } from '@/schema/player';
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui';
+import { Header } from '@/components/organism';
 
 export default function Home() {
   const { add, players, remove } = usePlayers();
@@ -14,7 +15,8 @@ export default function Home() {
   };
 
   return (
-    <div className='container m-auto flex flex-col'>
+    <div className='bg-background'>
+      <Header />
       <form className='' onSubmit={handleSubmit(handleAdd)}>
         <input type='text' className='border' {...register('name')} />
         <input type='submit' value='Save' />
