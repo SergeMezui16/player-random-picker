@@ -1,8 +1,10 @@
 import * as React from 'react';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -48,6 +50,9 @@ export function DrawerDialog({
             <DialogDescription>{description}</DialogDescription>
           </DialogHeader>
           {children}
+          <DialogFooter className='pt-2'>
+            <DialogClose asChild>{close}</DialogClose>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     );

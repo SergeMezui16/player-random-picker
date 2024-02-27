@@ -56,8 +56,12 @@ function PlayerForm({
         <Input type='text' {...register('name')} />
       </div>
       <div className='grid gap-2'>
-        <Label htmlFor='username'>Username</Label>
-        <Input id='username' defaultValue='@shadcn' />
+        <Label htmlFor='description'>Bio</Label>
+        <Input
+          id='description'
+          defaultValue='La Malice'
+          {...register('description')}
+        />
       </div>
       <Button type='submit'>Save changes</Button>
     </form>

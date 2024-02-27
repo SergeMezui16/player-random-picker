@@ -8,6 +8,7 @@ export const usePlayers = () => {
   const add = (player: Player) => {
     // generate id
     player.id = Math.random().toString();
+    player.name = player.name.slice(0, 10);
     player.createdAt = new Date().toDateString();
     player.updatedAt = new Date().toDateString();
     setPlayers([...players, player]);
