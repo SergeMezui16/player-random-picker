@@ -8,21 +8,21 @@ import logo from '@/assets/images/logo.jpg';
 export const Header = () => {
   return (
     <>
-      <div className='w-full container my-2 flex justify-between bg-background items-center'>
+      <div className='container my-2 flex w-full items-center justify-between bg-background'>
         <div className='flex items-center'>
           <h1 className='font-bold'>Logo</h1>
         </div>
-        <div className='flex items-center'>
+        <div className='flex h-full items-center justify-between'>
           <Link href={GITHUB_REPO_LINK} target='_blank'>
             <Button variant='ghost' size='icon'>
-              <GitHubIcon className='w-5 h-5' />
+              <GitHubIcon className='size-5' />
             </Button>
           </Link>
           <ModeToggle />
           <Link href={PERSONAL_WEBSITE_LINK} target='_blank'>
             <Button variant='ghost' size='icon'>
               <Image
-                className='w-[20px] h-[20px] tablet:w-[35px] tablet:h-[35px] rounded-full'
+                className='tablet:size-[35px] size-[20px] rounded-full'
                 src={logo}
                 alt='Logo Serge Mezui'
                 width={100}

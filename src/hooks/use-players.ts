@@ -8,6 +8,8 @@ export const usePlayers = () => {
   const add = (player: Player) => {
     // generate id
     player.id = Math.random().toString();
+    player.createdAt = new Date().toDateString();
+    player.updatedAt = new Date().toDateString();
     setPlayers([...players, player]);
   };
 
@@ -23,7 +25,10 @@ export const usePlayers = () => {
 
   return {
     add,
-    players,
+    players: players.sort(
+      (a, b) =>
+        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+    ),
     remove,
     findById,
   };

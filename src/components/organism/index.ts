@@ -1,2 +1,2 @@
 export * from './header';
-export * from './action-section';
+export * from './players-section';
