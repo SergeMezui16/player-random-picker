@@ -1,14 +1,17 @@
-import { Avatar, AvatarFallback, AvatarImage, Button } from '../ui';
+import { Avatar, AvatarFallback, AvatarImage, Button, Separator } from '../ui';
 import { createAvatar } from '@dicebear/core';
 import { lorelei, adventurerNeutral } from '@dicebear/collection';
 import { Player } from '@/schema/player';
 import { DrawerDialog } from '../molecule';
+import { Trash2Icon } from 'lucide-react';
+import { usePlayers } from '@/hooks';
 
 type PlayerAvatarType = {
   player: Player;
 };
 
 export const PlayerAvatar = ({ player }: PlayerAvatarType) => {
+  const { remove } = usePlayers();
   const avatar = createAvatar(adventurerNeutral, {
     seed: player.name,
     flip: true,
@@ -43,6 +46,15 @@ export const PlayerAvatar = ({ player }: PlayerAvatarType) => {
           <A />
           <p>{player.name}</p>
           <p className='text-muted-foreground'>{player.description}</p>
+          <Separator />
+          <br />
+          <Button
+            size='icon'
+            variant='destructive'
+            onClick={() => remove(player)}
+          >
+            <Trash2Icon className='stroke-1' />
+          </Button>
         </div>
       </DrawerDialog>
     </>
