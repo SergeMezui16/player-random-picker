@@ -16,7 +16,7 @@ export const PlayersSection = () => {
 
   return (
     <div className='container mx-auto my-4 flex flex-col gap-3'>
-      <h1 className=''>Action</h1>
+      <h1 className=''>Players</h1>
       <div className='flex h-64 gap-4 overflow-x-scroll'>
         {[...players.reverse()].map((player) => (
           <PlayerAvatar player={player} key={player.id} />
@@ -40,10 +40,20 @@ function PlayerForm({
   handleAfterSubmit,
 }: React.ComponentProps<'form'> & { handleAfterSubmit: () => void }) {
   const { add } = usePlayers();
-  const { register, handleSubmit } = useForm<Player>();
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<Player>();
 
   const handleAdd: SubmitHandler<Player> = (data) => {
-    add(data);
+    try {
+      add(data);
+    } catch (err: any) {
+      console.log(err.message);
+      setError('name', { message: err.message });
+    }
     handleAfterSubmit();
   };
   return (
@@ -53,7 +63,20 @@ function PlayerForm({
     >
       <div className='grid gap-2'>
         <Label htmlFor='name'>Name</Label>
-        <Input type='text' {...register('name')} />
+        <Input
+          type='text'
+          {...register('name', {
+            maxLength: {
+              value: 10,
+              message: 'This input exceed maxLength.',
+            },
+            required: {
+              value: true,
+              message: 'You should set at least a name.',
+            },
+          })}
+        />
+        {errors.name && <span>{errors.name.message}</span>}
       </div>
       <div className='grid gap-2'>
         <Label htmlFor='description'>Bio</Label>
@@ -64,7 +87,7 @@ function PlayerForm({
         />
       </div>
       <Button onClick={() => {}} type='submit'>
-        Save changes
+        Save
       </Button>
     </form>
   );
