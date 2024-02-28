@@ -33,5 +33,6 @@ export const usePlayers = () => {
     players: players.sort((a, b) => a.updatedAt - b.updatedAt),
     remove,
     findById,
+    count: players.length
   };
 };
