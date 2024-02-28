@@ -6,11 +6,15 @@ export const usePlayers = () => {
   const [players, setPlayers] = useLocalStorage<Player[]>(PLAYER_LOCAL_KEY, []);
 
   const add = (player: Player) => {
+    if (players.find((p) => p.name === player.name))
+      throw new Error('This player already exist');
+
     // generate id
     player.id = Math.random().toString();
-    player.name = player.name.slice(0, 10);
-    player.createdAt = new Date().toDateString();
-    player.updatedAt = new Date().toDateString();
+    player.name = player.name.slice(0, 12);
+    player.createdAt = new Date().getTime();
+    player.updatedAt = new Date().getTime();
+
     setPlayers([...players, player]);
   };
 
@@ -26,10 +30,7 @@ export const usePlayers = () => {
 
   return {
     add,
-    players: players.sort(
-      (a, b) =>
-        new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-    ),
+    players: players.sort((a, b) => a.updatedAt - b.updatedAt),
     remove,
     findById,
   };

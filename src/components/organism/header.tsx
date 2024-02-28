@@ -22,7 +22,7 @@ export const Header = () => {
           <Link href={PERSONAL_WEBSITE_LINK} target='_blank'>
             <Button variant='ghost' size='icon'>
               <Image
-                className='tablet:size-[35px] size-[20px] rounded-full'
+                className='size-[20px] rounded-full'
                 src={logo}
                 alt='Logo Serge Mezui'
                 width={100}

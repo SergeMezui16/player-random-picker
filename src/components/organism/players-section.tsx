@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 import { PlayerAvatar } from '../atom';
 import { usePlayers } from '@/hooks';
 import Link from 'next/link';
@@ -63,7 +63,9 @@ function PlayerForm({
           {...register('description')}
         />
       </div>
-      <Button type='submit'>Save changes</Button>
+      <Button onClick={() => {}} type='submit'>
+        Save changes
+      </Button>
     </form>
   );
 }
