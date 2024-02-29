@@ -1,17 +1,17 @@
 'use client';
 
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { usePlayers } from '@/hooks';
-import { Player } from '@/schema/player';
-import { Button } from '@/components/ui';
-import { PlayersSection, Header, Footer } from '@/components/organism';
+import {
+  PlayersSection,
+  Header,
+  Footer,
+  ActionSection,
+} from '@/components/organism';
 
 export default function Home() {
-  const { add, players, remove } = usePlayers();
-
   return (
     <div className='bg-background'>
       <Header />
+      <ActionSection />
       <PlayersSection />
       <Footer />
     </div>

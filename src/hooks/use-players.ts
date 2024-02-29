@@ -28,11 +28,17 @@ export const usePlayers = () => {
     return [...players].find((p) => p.id === player.id) ?? null;
   };
 
+  const randomPick = () => {
+    const random = Math.floor(Math.random() * players.length);
+    return players[random];
+  };
+
   return {
     add,
     players: players.sort((a, b) => a.updatedAt - b.updatedAt),
     remove,
     findById,
-    count: players.length
+    count: players.length,
+    randomPick,
   };
 };
