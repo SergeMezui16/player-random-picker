@@ -27,22 +27,23 @@ type DrawerDialogProps = {
   description?: React.ReactNode;
   close?: React.ReactNode;
   open: boolean;
+  onOpenChange?: (open: boolean) => void;
 } & React.PropsWithChildren;
 
 export function DrawerDialog({
-  open: o,
+  open,
   trigger,
   title,
   description,
   children,
   close,
+  onOpenChange,
 }: DrawerDialogProps) {
-  const [open, setOpen] = React.useState(o);
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
   if (isDesktop) {
     return (
-      <Dialog open={open} onOpenChange={setOpen}>
+      <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogTrigger asChild>{trigger}</DialogTrigger>
         <DialogContent className='sm:max-w-[425px]'>
           <DialogHeader>
@@ -59,7 +60,7 @@ export function DrawerDialog({
   }
 
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
+    <Drawer open={open} onOpenChange={onOpenChange}>
       <DrawerTrigger asChild>{trigger}</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className='text-left'>
