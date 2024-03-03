@@ -6,6 +6,17 @@ import { useState } from 'react';
 
 export const ActionSection = () => {
   const [open, setOpen] = useState(false);
+  const { players } = usePlayers();
+
+  if (players.length < 2)
+    return (
+      <div className='container mx-auto my-4'>
+        <p className='rounded border bg-card p-4 text-card-foreground'>
+          Ajouter des joueurs pour pouvoir faire des action
+        </p>
+      </div>
+    );
+
   return (
     <div className='container mx-auto my-4 flex flex-col gap-3'>
       <h1 className='text-2xl'>Actions</h1>
