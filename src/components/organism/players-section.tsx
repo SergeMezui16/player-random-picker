@@ -91,7 +91,7 @@ function PlayerForm({
         <Label htmlFor='description'>Bio</Label>
         <Input
           id='description'
-          defaultValue='La Malice'
+          placeholder='La Malice'
           {...register('description')}
         />
       </div>
