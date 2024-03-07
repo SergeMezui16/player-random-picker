@@ -95,7 +95,7 @@ function PlayerForm({
           {...register('description')}
         />
       </div>
-      <Button type='submit'>Save</Button>
+      <Button type='submit'>Ajouter</Button>
     </form>
   );
 }
