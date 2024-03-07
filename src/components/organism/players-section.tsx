@@ -77,11 +77,11 @@ function PlayerForm({
           {...register('name', {
             maxLength: {
               value: 10,
-              message: 'This input exceed maxLength.',
+              message: 'La nombre maximal de caractères est de dépassé.',
             },
             required: {
               value: true,
-              message: 'You should set at least a name.',
+              message: 'Vous devez renseigner au moin un nom.',
             },
           })}
         />
