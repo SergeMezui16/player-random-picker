@@ -13,12 +13,12 @@ export const Header = () => {
           <h1 className='font-bold'>Logo</h1>
         </div>
         <div className='flex h-full items-center justify-between'>
+          <ModeToggle />
           <Link href={GITHUB_REPO_LINK} target='_blank'>
             <Button variant='ghost' size='icon'>
               <GitHubIcon className='size-5' />
             </Button>
           </Link>
-          <ModeToggle />
           <Link href={PERSONAL_WEBSITE_LINK} target='_blank'>
             <Button variant='ghost' size='icon'>
               <Image
