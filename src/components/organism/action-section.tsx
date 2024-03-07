@@ -1,7 +1,7 @@
 import { PlayerCard } from '../atom';
 import { usePlayers } from '@/hooks';
 import { DrawerDialog } from '../molecule';
-import { PlusIcon } from 'lucide-react';
+import { ShuffleIcon } from 'lucide-react';
 import { useState } from 'react';
 
 export const ActionSection = () => {
@@ -27,13 +27,12 @@ export const ActionSection = () => {
           trigger={
             <div className='flex cursor-pointer flex-col items-center justify-center gap-2 transition-all duration-100 ease-in-out hover:mx-2 hover:scale-110'>
               <div className='flex size-32 items-center justify-center rounded border bg-primary/10'>
-                <PlusIcon className='stroke-1' />
+                <ShuffleIcon className='stroke-1' />
               </div>
               {"Choisir l'adversaire"}
             </div>
           }
-          // title='Le joueur sélectioné est'
-          //   description='Ajouter un nouveau joueur à votre team.'
+          title={"L'adversaire sélectioné est"}
           close={'Fermer'}
         >
           <PickPlayer />
