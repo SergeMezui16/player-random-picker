@@ -12,7 +12,7 @@ export const ActionSection = () => {
     return (
       <div className='container mx-auto my-4'>
         <p className='rounded border bg-card p-4 text-card-foreground'>
-          Ajouter des joueurs pour pouvoir faire des action
+          Ajouter des joueurs pour pouvoir faire des action.
         </p>
       </div>
     );
@@ -32,7 +32,7 @@ export const ActionSection = () => {
               {"Choisir l'adversaire"}
             </div>
           }
-          title={"L'adversaire sélectioné est"}
+          title={"L'adversaire sélectioné est:"}
           close={'Fermer'}
         >
           <PickPlayer />
