@@ -1,16 +1,15 @@
-import { PLAYER_LOCAL_KEY } from '@/config/constants';
-import { Player } from '@/schema/player';
-import { useLocalStorage } from 'usehooks-ts';
+import { PLAYER_LOCAL_KEY } from "@/config/constants";
+import { Player } from "@/schema/player";
+import { useLocalStorage } from "usehooks-ts";
 
 export const usePlayers = () => {
   const [players, setPlayers] = useLocalStorage<Player[]>(PLAYER_LOCAL_KEY, []);
 
   const add = (player: Player) => {
     if (players.find((p) => p.name === player.name))
-      throw new Error('This player already exist');
+      throw new Error("This player already exist!");
 
-    // generate id
-    player.id = Math.random().toString();
+    player.id = Math.random().toString(); // generate id
     player.name = player.name.slice(0, 12);
     player.createdAt = new Date().getTime();
     player.updatedAt = new Date().getTime();
@@ -39,6 +38,6 @@ export const usePlayers = () => {
     remove,
     findById,
     count: players.length,
-    randomPick,
+    randomPick
   };
 };

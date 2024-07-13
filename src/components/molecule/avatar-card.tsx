@@ -15,7 +15,7 @@ type AvatarCardProps = {
 export const AvatarCard = ({ title, handeClick }: AvatarCardProps) => {
   return (
     <div
-      className='rounded bg-yellow-400/80 text-card-foreground cursor-pointer p-4 border'
+      className='cursor-pointer rounded border bg-yellow-400/80 p-4 text-card-foreground'
       onClick={() => {
         if (handeClick) handeClick();
       }}
