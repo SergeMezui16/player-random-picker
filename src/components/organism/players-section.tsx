@@ -8,7 +8,7 @@ import { cn } from '@/lib/cn';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Player } from '@/schema/player';
 import { PlusIcon } from 'lucide-react';
-import { useState } from 'react';
+import { ComponentProps, useState} from 'react';
 
 export const PlayersSection = () => {
   const { players, count } = usePlayers();
@@ -29,8 +29,8 @@ export const PlayersSection = () => {
               Ajouter
             </div>
           }
-          title='Ajouter un joueur'
-          description='Ajouter un nouveau joueur à votre team.'
+          title='Add a player'
+          description='Add a new player to your team.'
           close={<button className='hidden'>Fermer</button>}
         >
           <PlayerForm handleAfterSubmit={setOpen} />
@@ -46,7 +46,7 @@ export const PlayersSection = () => {
 function PlayerForm({
   className,
   handleAfterSubmit,
-}: React.ComponentProps<'form'> & {
+}: ComponentProps<'form'> & {
   handleAfterSubmit: (open: boolean) => void;
 }) {
   const { add } = usePlayers();
@@ -77,11 +77,11 @@ function PlayerForm({
           {...register('name', {
             maxLength: {
               value: 10,
-              message: 'La nombre maximal de caractères est de dépassé.',
+              message: 'Only 10 chars are enabled.',
             },
             required: {
               value: true,
-              message: 'Vous devez renseigner au moin un nom.',
+              message: 'This field is required!',
             },
           })}
         />
@@ -91,7 +91,7 @@ function PlayerForm({
         <Label htmlFor='description'>Bio</Label>
         <Input
           id='description'
-          placeholder='La Malice'
+          placeholder='Mk46'
           {...register('description')}
         />
       </div>

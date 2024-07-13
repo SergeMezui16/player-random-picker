@@ -12,7 +12,7 @@ export const ActionSection = () => {
     return (
       <div className='container mx-auto my-4'>
         <p className='rounded border bg-card p-4 text-card-foreground'>
-          Ajouter des joueurs pour pouvoir faire des action.
+          Add more players to shuffle one of them.
         </p>
       </div>
     );
@@ -29,11 +29,11 @@ export const ActionSection = () => {
               <div className='flex size-32 items-center justify-center rounded border bg-primary/10'>
                 <ShuffleIcon className='stroke-1' />
               </div>
-              {"Choisir l'adversaire"}
+              {"Shuffle a player"}
             </div>
           }
-          title={"L'adversaire sélectioné est:"}
-          close={'Fermer'}
+          title={"The selected player is :"}
+          close={'Close'}
         >
           <PickPlayer />
         </DrawerDialog>
